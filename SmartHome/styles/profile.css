@@ -1,3 +1,12 @@
 body{
   background-image: url("../media/images/living-room-blur.png");
 }
+
+#profileContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  z-index: auto;
+}
+

@@ -70,6 +70,7 @@
 }
 
 #set-routine-button {
+  width: -moz-min-content;
   width: min-content;
   white-space: nowrap;
 }
@@ -151,6 +152,7 @@ button.routine-day {
   align-items: start;
   margin: auto;
   overflow-x: auto;
+  height: -moz-fit-content;
   height: fit-content;
   padding-bottom: 30px;
   grid-auto-flow: column;
@@ -163,7 +165,9 @@ button.routine-day {
 }
 
 #environments:has(.expanded-environments-view) {
+  width: -moz-fit-content;
   width: fit-content;
+  max-width: -moz-min-content;
   max-width: min-content;
   min-width: 220px;
 }
@@ -327,6 +331,7 @@ button.routine-day {
 
 #canvasWrapper canvas {
   border-radius: 10px;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
   margin-bottom: 5px;
@@ -369,6 +374,7 @@ button.routine-day {
 .AC-temp-window {
   display: flex;
   flex-direction: row;
+  width: -moz-min-content;
   width: min-content;
   align-items: center;
 }
@@ -402,6 +408,7 @@ button.routine-day {
 .AC-submit-button {
   background: green;
   color: white;
+  width: -moz-fit-content;
   width: fit-content;
   min-width: 100px;
 }
@@ -545,6 +552,11 @@ h2 {
   max-width: 880px;
 }
 
+#search-products-input:not(:-moz-placeholder-shown) + label svg {
+  position: relative;
+  bottom: -8px;
+}
+
 #search-products-input:focus + label svg,
 #search-products-input:not(:placeholder-shown) + label svg {
   position: relative;
@@ -650,6 +662,7 @@ body::before {
   min-height: 100vh;
   margin: 0;
   position: fixed;
+  z-index: -1;
 }
 
 body.no-blur::before {
@@ -752,6 +765,7 @@ input[type=time] {
   display: flex;
   position: relative;
   border-radius: 10px;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 10px;
   margin-top: 0;
@@ -776,6 +790,13 @@ input[type=time] {
   border-bottom-color: navy;
 }
 
+.form-group input:not(:-moz-placeholder-shown) + label {
+  font-size: 12px;
+  color: navy;
+  top: 5px;
+  left: -10px;
+}
+
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label {
   font-size: 12px;
@@ -791,6 +812,7 @@ input[type=time] {
   align-items: center;
   padding: 10px;
   text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
 }
@@ -819,7 +841,8 @@ header img {
   width: 5%;
   min-width: 40px;
   max-width: 200px;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 header p {
@@ -840,6 +863,7 @@ header p {
   padding-block: 7px;
   border-radius: 10px;
   display: flex;
+  width: -moz-min-content;
   width: min-content;
   align-items: center;
   text-align: center;
@@ -848,6 +872,7 @@ header p {
 }
 
 #profiles {
+  width: -moz-fit-content;
   width: fit-content;
 }
 
@@ -1068,6 +1093,7 @@ button:not(.preference, .environment, .return-button, .paddle, .AC-submit-button
   padding: max(1vw, 10px);
   border-radius: 10px;
   width: 85vw;
+  height: -moz-fit-content;
   height: fit-content;
   margin: 10px;
   position: relative;
@@ -1109,6 +1135,7 @@ button.routine-day,
   align-items: center;
   background: none;
   margin: 0;
+  width: -moz-fit-content;
   width: fit-content;
   max-width: 100%;
   backdrop-filter: unset;
@@ -1217,7 +1244,9 @@ footer {
 
 #settings,
 #more-info {
+  width: -moz-fit-content;
   width: fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 5px;
   display: flex;
@@ -1274,6 +1303,4 @@ footer p {
 
 footer p p {
   font-family: Helvetica, sans-serif;
-}
-
-/*# sourceMappingURL=stylesheet.css.map */
+}/*# sourceMappingURL=stylesheet.css.map */
