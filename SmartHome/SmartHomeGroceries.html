@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+	<meta charset='utf-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="./styles/stylesheet.css">
+	<link rel="stylesheet" href="./styles/mediaqueries.css">
+	<link rel="stylesheet" href="./styles/animations.css">
+	<title>SmartHome Groceries</title>
+	<link rel="icon" href="./media/images/logo-groceries.png">
+</head>
+
+<!-- Body of the website -->
+
+<body id="SmartHomeGroceriesPage">
+
+	<header>
+		<nav>
+			<div class="nav-wrapper">
+				<a id="return-from-groceries-button" href="SmartHome.html">
+					<svg class="svg-icon"
+						style="width: 1em; margin: auto; transform: scale(1.2); display: flex; height: 1em;fill: currentColor;overflow: hidden;"
+						viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M810.666667 469.333333H304.64l154.88-186.026666a42.666667 42.666667 0 1 0-65.706667-54.613334l-213.333333 256a50.773333 50.773333 0 0 0-3.84 6.4c0 2.133333 0 3.413333-2.986667 5.546667A42.666667 42.666667 0 0 0 170.666667 512a42.666667 42.666667 0 0 0 2.986666 15.36c0 2.133333 0 3.413333 2.986667 5.546667a50.773333 50.773333 0 0 0 3.84 6.4l213.333333 256A42.666667 42.666667 0 0 0 426.666667 810.666667a42.666667 42.666667 0 0 0 27.306666-9.813334 42.666667 42.666667 0 0 0 5.546667-60.16L304.64 554.666667H810.666667a42.666667 42.666667 0 0 0 0-85.333334z"
+							fill="#231F20" />
+					</svg>
+				</a>
+				<div id="logo"><img src="./media/images/logo-groceries.png" alt="SmartHome Logo">
+					<p>SmartHome Groceries</p>
+				</div>
+			</div>
+			<div class="nav-wrapper">
+				<div id="cart">
+					<p>0</p>
+					<p></p>
+				</div>
+				<div id="cart-view">
+				</div>
+				<div id="user"><img src="./media/images/user-icon.png" alt="Your user icon">
+				</div>
+				<div id="current-time"></div>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+
+		<div id="content-windows">
+			<div>
+				<div id="search-products-bar" class="form-group">
+					<input id="search-products-input" type="text" name="searchProducts" placeholder="">
+					<label for="search-products-input"></label>
+				</div>
+				<div id="search-results-container"></div>
+			</div>
+			<div id="stores">
+				<p id="stores-text"></p>
+				<div id="stores-selection">
+				</div>
+				<div class="paddles">
+					<button class="left-paddle paddle">
+						&lt;
+					</button>
+					<button class="right-paddle paddle">
+						&gt;
+					</button>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+	<footer>
+		<select id="language-select">
+			<option value="en">English</option>
+			<option value="pt">Português</option>
+		</select>
+	</footer>
+
+	<script src="scripts/main.js"></script>
+
+	<script src="scripts/language.js"></script>
+	<script src="scripts/time.js"></script>
+	<script src="scripts/groceries.js"></script>
+	<script src="scripts/scroll.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the general preferences */
+
+/* General preferences icons */
+@each $preference, $icon in variables.$preferences-icons {
+    $gradient: map-get(variables.$preferences-icons-gradients, $preference);
+
+    ##{$preference} {
+        background-image: $icon, $gradient;
+    }
+}
+
+#general-home-preferences-selection>div.preference {
+    padding: 0;
+}
+
+.preference #AC,
+.preference #lighting,
+.preference #chatGPT,
+.preference #windows-button,
+.preference #vacuum-robot,
+.preference #groceries {
+    max-width: 70px;
+    max-height: 70px;
+}
+
+#general-home-preferences-selection {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* ChatGPT iframe */
+#ICG-iframe {
+    border-radius: 10px;
+    height: 500px;
+    width: 100%;
+    border: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}

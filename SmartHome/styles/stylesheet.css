@@ -1,0 +1,1279 @@
+/* ============================================
+   Variables
+============================================ */
+/* This stylesheet contains only styles related to the general preferences */
+/* General preferences icons */
+#AC {
+  background-image: url("../media/images/AC-icon.png"), linear-gradient(45deg, #add, #191bc9);
+}
+
+#lighting {
+  background-image: url("../media/images/lighting-icon.png"), linear-gradient(45deg, orange, rgb(155, 106, 25));
+}
+
+#chatGPT {
+  background-image: url("../media/images/chatGPT-icon.png"), linear-gradient(45deg, green, black);
+}
+
+#windows-button {
+  background-image: url("../media/images/windows-icon.png"), linear-gradient(45deg, #7f8546, wheat);
+}
+
+#vacuum-robot {
+  background-image: url("../media/images/vacuum-robot-icon.png"), linear-gradient(45deg, #7979d0, purple);
+}
+
+#groceries {
+  background-image: url("../media/images/groceries-icon.png"), linear-gradient(45deg, #701616, #d63784);
+}
+
+#general-home-preferences-selection > div.preference {
+  padding: 0;
+}
+
+.preference #AC,
+.preference #lighting,
+.preference #chatGPT,
+.preference #windows-button,
+.preference #vacuum-robot,
+.preference #groceries {
+  max-width: 70px;
+  max-height: 70px;
+}
+
+#general-home-preferences-selection {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ChatGPT iframe */
+#ICG-iframe {
+  border-radius: 10px;
+  height: 500px;
+  width: 100%;
+  border: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* This stylesheet contains only styles related to the routines functionality */
+#routine {
+  padding: max(1vw, 10px);
+  margin: 10px;
+  display: flex;
+  justify-content: start;
+  overflow: auto;
+  gap: 10px;
+  width: 100%;
+}
+
+#set-routine-button {
+  width: min-content;
+  white-space: nowrap;
+}
+
+#days-of-week-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
+
+button.routine-day {
+  height: 60px;
+  width: 60px;
+}
+
+#define-routine-wrapper {
+  text-align: center;
+  margin: auto;
+  width: 100%;
+}
+
+#activity-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  flex-direction: row;
+}
+
+/* This stylesheet contains only styles related to the environments functionality */
+/* Environment icons */
+.environment .living-room {
+  background-image: url("../media/images/living-room-icon.png"), linear-gradient(45deg, #e4bc52, #710078);
+}
+
+#add-living-room-button {
+  background-image: url("../media/images/living-room-icon.png");
+}
+
+.environment .kitchen {
+  background-image: url("../media/images/kitchen-icon.png"), linear-gradient(45deg, rgb(102, 246, 0), brown);
+}
+
+#add-kitchen-button {
+  background-image: url("../media/images/kitchen-icon.png");
+}
+
+.environment .bedroom {
+  background-image: url("../media/images/bedroom-icon.png"), linear-gradient(45deg, #09097b, #969696);
+}
+
+#add-bedroom-button {
+  background-image: url("../media/images/bedroom-icon.png");
+}
+
+.environment .bathroom {
+  background-image: url("../media/images/bathroom-icon.png"), linear-gradient(45deg, lightblue, teal);
+}
+
+#add-bathroom-button {
+  background-image: url("../media/images/bathroom-icon.png");
+}
+
+/* ------ */
+#expand-environments-button {
+  height: 30px;
+  width: 30px;
+}
+
+#expand-environments-button svg {
+  transform: scale(1.4);
+  filter: contrast(0.5);
+}
+
+#environment-selection {
+  justify-content: start;
+  align-items: start;
+  margin: auto;
+  overflow-x: auto;
+  height: fit-content;
+  padding-bottom: 30px;
+  grid-auto-flow: column;
+  margin-top: 0;
+}
+
+#environments .expanded-environments-view {
+  grid-auto-flow: unset;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+#environments:has(.expanded-environments-view) {
+  width: fit-content;
+  max-width: min-content;
+  min-width: 220px;
+}
+
+#environments:has(.expanded-environments-view) .confirmation-box {
+  width: 70vw;
+  max-width: 540px;
+}
+
+#environments:has(.environment-preference-button) {
+  max-width: 540px;
+}
+
+#environment-selection p:not(.add-products-text) {
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 80px;
+}
+
+.environment-preference-button {
+  width: 100%;
+  min-width: 200px;
+  padding: 10px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.environment:last-of-type > div {
+  border-radius: 100px;
+  padding: 0;
+}
+
+.environment:last-of-type {
+  text-align: center;
+  padding: 9px;
+}
+
+#environments .add-environment-window {
+  display: flex;
+  justify-content: center;
+}
+
+#add-environments-selection {
+  margin-top: 15px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#add-products-selection {
+  flex-direction: column;
+  width: 100%;
+  margin: 5px;
+}
+
+.environment .bathroom,
+.environment .living-room,
+.environment .kitchen,
+.environment .bedroom {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.environment .bathroom {
+  background-color: darkcyan;
+}
+
+.environment .living-room {
+  background-color: crimson;
+}
+
+.environment .kitchen {
+  background-color: #233097;
+}
+
+.environment .bedroom {
+  background-color: #e083db;
+}
+
+.pantry-products-display {
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+#add-environment-button {
+  width: 10vw;
+  height: 10vw;
+  max-width: 70px;
+  padding: 10px;
+  max-height: 70px;
+  min-width: 70px;
+  min-height: 70px;
+}
+
+#add-bedroom-button,
+#add-bathroom-button,
+#add-kitchen-button,
+#add-living-room-button {
+  background-color: rgba(0, 0, 0, 0.7);
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  justify-content: center;
+  align-items: flex-end;
+  cursor: pointer;
+}
+#add-bedroom-button:hover,
+#add-bathroom-button:hover,
+#add-kitchen-button:hover,
+#add-living-room-button:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+#add-bedroom-button:active,
+#add-bathroom-button:active,
+#add-kitchen-button:active,
+#add-living-room-button:active {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+
+#add-environments-selection p {
+  font-size: clamp(13px, 5vw, 17.5px);
+  text-align: center;
+}
+
+#add-environments-selection > div {
+  padding-top: 5px;
+}
+
+#add-products-selection > button,
+#submit-environment-button {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.add-products-text {
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+#submit-environment-button {
+  background-color: green;
+  color: white;
+  width: 98%;
+}
+
+/* Toaster canvas */
+#canvasWrapper {
+  flex-direction: column;
+}
+#canvasWrapper:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+#canvasWrapper:active {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+
+#canvasWrapper canvas {
+  border-radius: 10px;
+  width: fit-content;
+  margin: auto;
+  margin-bottom: 5px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+#canvasWrapper button {
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* ------ */
+/* This stylesheet contains only styles related to the air conditioner functionality */
+.AC-window {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#environment-selection .AC-window p:not(.add-products-text) {
+  width: unset;
+}
+
+.AC-temp-display {
+  border: none;
+  font-size: 30px;
+  border-radius: 10px;
+  margin: 0;
+  height: 35px;
+  text-align: center;
+  background: none;
+  cursor: auto;
+  padding: 0;
+  box-shadow: none;
+  width: 100px;
+  min-width: unset;
+}
+
+.AC-temp-window {
+  display: flex;
+  flex-direction: row;
+  width: min-content;
+  align-items: center;
+}
+
+.AC-temp-up,
+.AC-temp-down,
+.AC-power-button {
+  width: 35px;
+  height: 35px;
+  font-size: 25px;
+  justify-content: center;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  align-items: center;
+}
+
+.AC-fan-wrapper .fan-speed-option {
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+  height: 35px;
+  width: 35px;
+}
+
+.AC-power-button {
+  width: 185px;
+}
+
+.AC-submit-button {
+  background: green;
+  color: white;
+  width: fit-content;
+  min-width: 100px;
+}
+
+/* This stylesheet contains only styles related to the lighting functionality */
+#lighting-1,
+#lighting-2,
+#lighting-3 {
+  font-size: larger;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+#lighting-window {
+  flex-direction: column;
+  margin: auto;
+}
+
+#lighting-1 {
+  background-color: rgb(55, 55, 55);
+  color: white;
+}
+
+#lighting-2 {
+  background-color: rgb(142, 142, 142);
+  color: white;
+}
+
+#lighting-3 {
+  background-color: white;
+}
+
+#lighting-window label,
+#lighting-intensity-text {
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-left: clamp(20px, 20vw, 180px);
+  margin-right: clamp(20px, 20vw, 180px);
+  white-space: nowrap;
+}
+
+#lighting-intensity-text {
+  white-space: unset;
+}
+
+#color-palette::-webkit-color-swatch {
+  border: 2px solid orange;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+#color-palette::-webkit-color-swatch:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+#color-palette::-webkit-color-swatch:active {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+
+#color-palette {
+  border: none;
+  display: block;
+  background: none;
+  cursor: pointer;
+  height: 65px;
+  width: 185px;
+  margin-right: clamp(20px, 10vw, 150px);
+  margin-left: clamp(20px, 10vw, 150px);
+  margin-bottom: 5px;
+}
+
+/* This stylesheet contains only styles related to the vacuum robot functionality */
+#vacuum-robot-window {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#vacuum-robot-power-button {
+  width: 35px;
+  height: 35px;
+  font-size: 25px;
+  justify-content: center;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  align-items: center;
+}
+
+#vacuum-robot-power-button {
+  width: 185px;
+}
+
+/* This stylesheet contains only styles related to the windows functionality */
+.windows-window {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#environment-selection .windows-window p:not(.add-products-text) {
+  width: unset;
+}
+
+/* This stylesheet contains only styles related to the SmartHome Groceries page */
+h2 {
+  margin: 0;
+  font-weight: lighter;
+}
+
+#search-products-bar {
+  margin: auto;
+}
+
+#SmartHomeGroceriesPage #content-windows {
+  display: flex;
+  flex-direction: column;
+}
+
+#search-products-bar label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+#content-windows #stores {
+  max-width: 900px;
+}
+
+#search-products-input {
+  padding-left: 35px;
+  padding-right: 35px;
+  width: 70vw;
+  max-width: 880px;
+}
+
+#search-products-input:focus + label svg,
+#search-products-input:not(:placeholder-shown) + label svg {
+  position: relative;
+  bottom: -8px;
+}
+
+#return-from-groceries-button {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  margin: 0;
+}
+
+#stores-selection {
+  padding: 10px;
+  grid-auto-flow: column;
+  overflow: auto;
+  padding-bottom: 40px;
+}
+
+.store {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.store > div {
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 10vw;
+  height: 10vw;
+  background-size: cover;
+  margin: 0;
+  border-radius: 10px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 70px;
+  min-height: 70px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.store p {
+  max-width: 100px;
+}
+
+#credit-card-form {
+  font-size: 14.5px;
+}
+
+#credit-card-form input {
+  max-width: 200px;
+  min-width: 140px;
+  width: 40vw;
+}
+
+#credit-card-form input[type=month] {
+  max-width: 150px;
+}
+
+#cart-view {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  z-index: 1;
+  margin-right: 35px;
+  margin-top: 10px;
+  top: 70px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  padding: 25px;
+  border-radius: 10px;
+}
+
+/* ============================================
+   Main stylesheet
+============================================ */
+/* This stylesheet contains styles for the main elements of the two pages and 
+styles that span several types of elements */
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: Helvetica, sans-serif;
+  font-weight: lighter;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: all ease-out 0.3s;
+  -webkit-transition: all ease-out 0.3s;
+}
+
+body::before {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  content: "";
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  position: fixed;
+}
+
+body.no-blur::before {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+body.loading-animation {
+  animation: fade-in-animation ease forwards 1.5s;
+}
+
+body#SmartHomePage {
+  background-image: url("../media/images/living-room.jpg");
+}
+
+body#SmartHomeGroceriesPage::before {
+  backdrop-filter: unset;
+  -webkit-backdrop-filter: unset;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: Helvetica, sans-serif;
+  color: black;
+  font-weight: lighter;
+  margin: auto;
+  padding: max(1vw, 10px);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 10px;
+  width: 85vw;
+  max-width: 540px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+p {
+  margin: 5px;
+  color: black;
+}
+
+p.subp {
+  font-size: small;
+  margin-bottom: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15px;
+  align-items: center;
+  margin: auto;
+}
+
+input,
+select {
+  border-radius: 10px;
+  border: 0;
+  padding: 10px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+select {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right white;
+  background-position: right 10px center;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  line-height: 1.5em;
+  margin: 5px;
+  padding: 11px 3.5em 11px 1em;
+}
+select:focus {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') no-repeat right white;
+  background-position: right 10px center;
+}
+
+input[type=text]:not(.AC-temp-display) {
+  height: 30px;
+  font-size: 15px;
+  min-width: 150px;
+  width: 60vw;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  border-radius: 10px;
+  background-color: white;
+  padding: 15px;
+  padding-bottom: 0px;
+}
+
+input[type=time] {
+  width: 100px;
+}
+
+.form-group {
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.form-group label {
+  position: absolute;
+  top: 12px;
+  left: 0;
+  font-size: 16px;
+  padding-left: 10px;
+  transition: all ease-out 0.3s;
+  pointer-events: none;
+  margin: auto;
+  margin-left: 10px;
+  color: gray;
+}
+
+.form-group input:focus {
+  background-color: white;
+  border-bottom-color: navy;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  font-size: 12px;
+  color: navy;
+  top: 5px;
+  left: -10px;
+}
+
+.confirmation-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+}
+
+/* Main content container */
+main {
+  padding-bottom: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* Header styles */
+header {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+
+header img {
+  width: 5%;
+  min-width: 40px;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+header p {
+  font-family: Helvetica, sans-serif;
+  font-weight: lighter;
+  margin-left: 5px;
+}
+
+#logo,
+#user,
+#cart,
+#profiles,
+#current-time {
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-block: 7px;
+  border-radius: 10px;
+  display: flex;
+  width: min-content;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  justify-content: center;
+}
+
+#profiles {
+  width: fit-content;
+}
+
+#logo,
+#current-time {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+#current-time {
+  width: 90%;
+  white-space: nowrap;
+  max-width: 220px;
+}
+
+#user,
+#cart,
+#profiles, #settings,
+#settings > img,
+#more-info {
+  cursor: pointer;
+  color: white;
+}
+#user:not(#settings > img),
+#cart:not(#settings > img),
+#profiles:not(#settings > img), #settings:not(#settings > img),
+#settings > img:not(#settings > img),
+#more-info:not(#settings > img) {
+  background: rgba(0, 0, 0, 0.7);
+}
+#user p,
+#cart p,
+#profiles p, #settings p,
+#settings > img p,
+#more-info p {
+  color: white;
+}
+#user:hover:not(#settings),
+#cart:hover:not(#settings),
+#profiles:hover:not(#settings), #settings:hover:not(#settings),
+#settings > img:hover:not(#settings),
+#more-info:hover:not(#settings) {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+#user:active:not(#settings),
+#cart:active:not(#settings),
+#profiles:active:not(#settings), #settings:active:not(#settings),
+#settings > img:active:not(#settings),
+#more-info:active:not(#settings) {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+#user:disabled:not(#settings),
+#cart:disabled:not(#settings),
+#profiles:disabled:not(#settings), #settings:disabled:not(#settings),
+#settings > img:disabled:not(#settings),
+#more-info:disabled:not(#settings) {
+  filter: grayscale(1);
+  cursor: unset;
+}
+
+.nav-wrapper {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+
+/* Horizontal scrolling paddles */
+.paddle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2em;
+  background: rgba(255, 255, 255, 0.7);
+  margin: 5px;
+  height: 93%;
+  margin-top: auto;
+  margin-bottom: auto;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.paddle.right-paddle {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  bottom: 20px;
+  right: 20px;
+  top: unset;
+  margin: 5px;
+  border-radius: 100px;
+}
+
+.paddle.left-paddle {
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  bottom: 20px;
+  left: 20px;
+  top: unset;
+  display: none;
+  margin: 5px;
+  border-radius: 100px;
+}
+
+/* Main button styles */
+button,
+#return-from-groceries-button,
+#general-home-preferences-selection > div,
+#general-home-preferences-selection > form,
+#environment-selection > div:not(#add-environments-selection, #add-products-selection, #add-environment-wrapper, .paddles),
+#stores-selection > .store {
+  font-size: clamp(13px, 5vw, 17.5px);
+  border: none;
+  border-radius: 10px;
+  padding: 9px;
+  text-align: center;
+}
+
+button,
+#return-from-groceries-button,
+#add-environment-button,
+canvas#canvas1 {
+  cursor: pointer;
+}
+button:hover,
+#return-from-groceries-button:hover,
+#add-environment-button:hover,
+canvas#canvas1:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+button:active,
+#return-from-groceries-button:active,
+#add-environment-button:active,
+canvas#canvas1:active {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+button:disabled,
+#return-from-groceries-button:disabled,
+#add-environment-button:disabled,
+canvas#canvas1:disabled {
+  filter: grayscale(1);
+  cursor: unset;
+}
+
+button,
+#return-from-groceries-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+#general-home-preferences-selection > .preference > div:hover, #general-home-preferences-selection > .preference > a:hover,
+#environment-selection > .environment > div:hover,
+#environment-selection > .environment > a:hover,
+#stores-selection > .store > div:hover,
+#stores-selection > .store > a:hover {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+#general-home-preferences-selection > .preference > div:active, #general-home-preferences-selection > .preference > a:active,
+#environment-selection > .environment > div:active,
+#environment-selection > .environment > a:active,
+#stores-selection > .store > div:active,
+#stores-selection > .store > a:active {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+#general-home-preferences-selection > .preference > div:disabled, #general-home-preferences-selection > .preference > a:disabled,
+#environment-selection > .environment > div:disabled,
+#environment-selection > .environment > a:disabled,
+#stores-selection > .store > div:disabled,
+#stores-selection > .store > a:disabled {
+  filter: grayscale(1);
+  cursor: unset;
+}
+
+button:not(.preference, .environment, .return-button, .paddle, .AC-submit-button) {
+  margin: 5px;
+  background-color: white;
+}
+
+.return-button {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 0;
+  border-radius: 100px;
+  margin-top: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 15px;
+}
+
+/* Content windows */
+#content-windows {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+#environments-routine-outer-window,
+#environments,
+#routine-window,
+#general-home-preferences,
+#AC-stats,
+#stores {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: lighter;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  padding: max(1vw, 10px);
+  border-radius: 10px;
+  width: 85vw;
+  height: fit-content;
+  margin: 10px;
+  position: relative;
+  transition: all ease-out 0.3s;
+}
+
+#environments,
+#routine-window,
+#general-home-preferences,
+#AC-stats,
+#stores {
+  max-width: 540px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+#AC-stats-text {
+  font-size: medium;
+}
+
+#routine-window,
+#environments {
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+button.routine-day,
+#expand-environments-button {
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  display: flex;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+#environments-routine-outer-window {
+  padding: 0;
+  align-items: center;
+  background: none;
+  margin: 0;
+  width: fit-content;
+  max-width: 100%;
+  backdrop-filter: unset;
+  -webkit-backdrop-filter: unset;
+}
+
+#environment-selection,
+#general-home-preferences-selection,
+#stores-selection {
+  display: grid;
+  justify-items: center;
+  align-items: start;
+  flex-wrap: wrap;
+}
+
+/* Environment and preference styles */
+.environment,
+.preference {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  background-color: unset;
+}
+
+#preferences-text,
+#routine-text,
+#environments-text,
+#stores-text {
+  font-size: 23px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 60%;
+}
+
+.environment > div,
+.preference > div,
+.preference > a {
+  margin: auto;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Styling for specific environment icons */
+.environment .bathroom,
+.environment .living-room,
+.environment .kitchen,
+.environment .bedroom,
+.preference #AC,
+.preference #lighting,
+.preference #chatGPT,
+.preference #windows-button,
+.preference #vacuum-robot,
+.preference #groceries {
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 10vw;
+  height: 10vw;
+  background-size: 80%, cover;
+  margin: 0;
+  min-width: 70px;
+  min-height: 70px;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Footer styles */
+footer {
+  display: flex;
+  flex-direction: row;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin: auto;
+  margin-bottom: 0;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.8em;
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+  gap: 5px;
+}
+
+#language-select {
+  border: 5px solid rgba(0, 0, 0, 0.7);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right rgba(0, 0, 0, 0.7);
+  background-position: right 10px center;
+  color: white;
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  padding: 0 2.5em 0 1em;
+  font-size: 17px;
+  margin: 0;
+}
+
+#language-select:focus {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') no-repeat right rgba(0, 0, 0, 0.7);
+  background-position: right 10px center;
+}
+
+#settings,
+#more-info {
+  width: fit-content;
+  height: fit-content;
+  padding: 5px;
+  display: flex;
+  border-radius: 10px;
+}
+
+#settings img,
+#more-info p {
+  width: 30px;
+  height: 30px;
+}
+
+#more-info p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  outline: 1px solid;
+  border-radius: 100px;
+}
+
+#settings div {
+  position: absolute;
+  top: -42px;
+  left: 0;
+  z-index: 1;
+  background: black;
+  font-size: large;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+#settings div:hover:not(#settings) {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+}
+#settings div:active:not(#settings) {
+  filter: drop-shadow(0 0 0.75rem orange);
+}
+
+footer .confirmation-box + #more-info,
+footer .confirmation-box + #more-info + #settings {
+  display: none;
+}
+
+footer:has(.confirmation-box) {
+  flex-direction: column;
+}
+
+footer p {
+  font-weight: lighter;
+  color: white;
+}
+
+footer p p {
+  font-family: Helvetica, sans-serif;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */

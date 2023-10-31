@@ -1,0 +1,644 @@
+@use "variables";
+@use "general";
+@use "routine";
+@use "environments";
+@use "airConditioner";
+@use "lighting";
+@use "vacuumRobot";
+@use "windows";
+@use "groceries";
+
+/* ============================================
+   Main stylesheet
+============================================ */
+/* This stylesheet contains styles for the main elements of the two pages and 
+styles that span several types of elements */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: variables.$default-font;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    transition: all ease-out 0.3s;
+    -webkit-transition: all ease-out 0.3s;
+}
+
+body::before {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    content: "";
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    position: fixed;
+}
+
+body.no-blur::before {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.loading-animation {
+    animation: fade-in-animation ease forwards 1.5s;
+}
+
+body#SmartHomePage {
+    background-image: variables.$default-background;
+}
+
+body#SmartHomeGroceriesPage::before {
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: variables.$default-font;
+    color: black;
+    font-weight: lighter;
+    margin: auto;
+    padding: max(1vw, 10px);
+    text-align: center;
+    background: variables.$light-element-background;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-radius: 10px;
+    width: 85vw;
+    max-width: 540px;
+    box-shadow: variables.$default-box-shadow;
+}
+
+p {
+    margin: 5px;
+    color: black;
+}
+
+p.subp {
+    font-size: small;
+    margin-bottom: 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 15px;
+    align-items: center;
+    margin: auto;
+}
+
+input,
+select {
+    border-radius: 10px;
+    border: 0;
+    padding: 10px;
+    box-shadow: variables.$default-box-shadow;
+    cursor: pointer;
+}
+
+select {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right white;
+    background-position: right 10px center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    line-height: 1.5em;
+    margin: 5px;
+    padding: 11px 3.5em 11px 1em;
+
+    &:focus {
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') no-repeat right white;
+        background-position: right 10px center;
+    }
+}
+
+input[type=text]:not(.AC-temp-display) {
+    height: 30px;
+    font-size: 15px;
+    min-width: 150px;
+    width: 60vw;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+input[type=time] {
+    width: 100px;
+}
+
+.form-group {
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-group label {
+    position: absolute;
+    top: 12px;
+    left: 0;
+    font-size: 16px;
+    padding-left: 10px;
+    transition: all ease-out 0.3s;
+    pointer-events: none;
+    margin: auto;
+    margin-left: 10px;
+    color: gray;
+}
+
+.form-group input:focus {
+    background-color: white;
+    border-bottom-color: navy;
+}
+
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label {
+    font-size: 12px;
+    color: navy;
+    top: 5px;
+    left: -10px;
+}
+
+.confirmation-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+
+/* Main content container */
+main {
+    padding-bottom: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+/* Header styles */
+header {
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+header img {
+    width: 5%;
+    min-width: 40px;
+    max-width: 200px;
+    object-fit: contain;
+}
+
+header p {
+    font-family: variables.$default-font;
+    font-weight: lighter;
+    margin-left: 5px;
+}
+
+#logo,
+#user,
+#cart,
+#profiles,
+#current-time {
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 7px;
+    border-radius: 10px;
+    display: flex;
+    width: min-content;
+    align-items: center;
+    text-align: center;
+    box-shadow: variables.$default-box-shadow;
+    justify-content: center;
+}
+
+#profiles {
+    width: fit-content;
+}
+
+#logo,
+#current-time {
+    background: variables.$light-element-background;
+}
+
+#current-time {
+    width: 90%;
+    white-space: nowrap;
+    max-width: 220px;
+}
+
+#user,
+#cart,
+#profiles, #settings,
+#settings>img,
+#more-info {
+    &:not(#settings>img) {
+    background: variables.$dark-element-background;
+    }
+    cursor: pointer;
+    color: white;
+
+    & p {
+        color: white;
+    }
+
+    &:hover:not(#settings) {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &:active:not(#settings) {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+
+    &:disabled:not(#settings) {
+        filter: grayscale(1);
+        cursor: unset;
+    }
+}
+
+.nav-wrapper {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+
+/* Horizontal scrolling paddles */
+.paddle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2em;
+    background: variables.$light-element-background;
+    margin: 5px;
+    height: 93%;
+    margin-top: auto;
+    margin-bottom: auto;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    box-shadow: variables.$default-box-shadow;
+}
+
+.paddle.right-paddle {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    bottom: 20px;
+    right: 20px;
+    top: unset;
+    margin: 5px;
+    border-radius: 100px;
+}
+
+.paddle.left-paddle {
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    bottom: 20px;
+    left: 20px;
+    top: unset;
+    display: none;
+    margin: 5px;
+    border-radius: 100px;
+}
+
+/* Main button styles */
+button,
+#return-from-groceries-button,
+#general-home-preferences-selection>div,
+#general-home-preferences-selection>form,
+#environment-selection>div:not(#add-environments-selection, #add-products-selection, #add-environment-wrapper, .paddles),
+#stores-selection>.store {
+    font-size: clamp(13px, 5vw, 17.5px);
+    border: none;
+    border-radius: 10px;
+    padding: 9px;
+    text-align: center;
+}
+
+button,
+#return-from-groceries-button,
+#add-environment-button,
+canvas#canvas1 {
+    cursor: pointer;
+
+    &:hover {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &:active {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+
+    &:disabled {
+        filter: grayscale(1);
+        cursor: unset;
+    }
+}
+
+button,
+#return-from-groceries-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: variables.$default-box-shadow;
+}
+
+#general-home-preferences-selection>.preference,
+#environment-selection>.environment,
+#stores-selection>.store {
+
+    &>div:hover,
+    &>a:hover {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &>div:active,
+    &>a:active {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+
+    &>div:disabled,
+    &>a:disabled {
+        filter: grayscale(1);
+        cursor: unset;
+    }
+}
+
+button:not(.preference, .environment, .return-button, .paddle, .AC-submit-button) {
+    margin: 5px;
+    background-color: white;
+}
+
+.return-button {
+    color: white;
+    background-color: variables.$dark-element-background;
+    padding: 0;
+    border-radius: 100px;
+    margin-top: 4px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 15px;
+}
+
+/* Content windows */
+#content-windows {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#environments-routine-outer-window,
+#environments,
+#routine-window,
+#general-home-preferences,
+#AC-stats,
+#stores {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: lighter;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: max(1vw, 10px);
+    border-radius: 10px;
+    width: 85vw;
+    height: fit-content;
+    margin: 10px;
+    position: relative;
+    transition: all ease-out 0.3s;
+}
+
+#environments,
+#routine-window,
+#general-home-preferences,
+#AC-stats,
+#stores {
+    max-width: 540px;
+    box-shadow: variables.$default-box-shadow;
+}
+
+#AC-stats-text {
+    font-size: medium;
+}
+
+#routine-window,
+#environments {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+button.routine-day,
+#expand-environments-button {
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+#environments-routine-outer-window {
+    padding: 0;
+    align-items: center;
+    background: none;
+    margin: 0;
+    width: fit-content;
+    max-width: 100%;
+    backdrop-filter: unset;
+    -webkit-backdrop-filter: unset;
+}
+
+#environment-selection,
+#general-home-preferences-selection,
+#stores-selection {
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    flex-wrap: wrap;
+}
+
+/* Environment and preference styles */
+.environment,
+.preference {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: unset;
+}
+
+#preferences-text,
+#routine-text,
+#environments-text,
+#stores-text {
+    font-size: 23px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 60%;
+}
+
+.environment>div,
+.preference>div,
+.preference>a {
+    margin: auto;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Styling for specific environment icons */
+.environment .bathroom,
+.environment .living-room,
+.environment .kitchen,
+.environment .bedroom,
+.preference #AC,
+.preference #lighting,
+.preference #chatGPT,
+.preference #windows-button,
+.preference #vacuum-robot,
+.preference #groceries {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 10vw;
+    height: 10vw;
+    background-size: 80%, cover;
+    margin: 0;
+    min-width: 70px;
+    min-height: 70px;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+/* Footer styles */
+footer {
+    display: flex;
+    flex-direction: row;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin: auto;
+    margin-bottom: 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.8em;
+    box-shadow: variables.$default-box-shadow;
+    gap: 5px;
+}
+
+#language-select {
+    border: 5px solid variables.$dark-element-background;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/></svg>') no-repeat right variables.$dark-element-background;
+    background-position: right 10px center;
+    color: white;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: 0 2.5em 0 1em;
+    font-size: 17px;
+    margin: 0;
+}
+
+#language-select:focus {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-chevron-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/></svg>') no-repeat right variables.$dark-element-background;
+    background-position: right 10px center;
+}
+
+#settings,
+#more-info {
+    width: fit-content;
+    height: fit-content;
+    padding: 5px;
+    display: flex;
+    border-radius: 10px;
+}
+
+#settings img,
+#more-info p {
+    width: 30px;
+    height: 30px;
+}
+
+#more-info p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    outline: 1px solid;
+    border-radius: 100px;
+}
+
+#settings div {
+    position: absolute;
+    top: -42px;
+    left: 0;
+    z-index: 1;
+    background: black;
+    font-size: large;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+
+    &:hover:not(#settings) {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &:active:not(#settings) {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+}
+
+footer .confirmation-box+#more-info,
+footer .confirmation-box+#more-info+#settings {
+    display: none;
+}
+
+footer:has(.confirmation-box) {
+    flex-direction: column;
+}
+
+footer p {
+    font-weight: lighter;
+    color: white;
+}
+
+footer p p {
+    font-family: variables.$default-font;
+}

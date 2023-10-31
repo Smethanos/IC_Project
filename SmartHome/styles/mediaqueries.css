@@ -1,0 +1,48 @@
+@media screen and (max-width: 800px) {
+    #environments .expanded-environments-view {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #environments .expanded-environments-view {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #SmartHomeGroceriesPage .nav-wrapper {
+		flex-wrap: wrap;
+	}
+}
+
+@media screen and (max-width: 450px) {
+
+    #environments-outer-window {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #general-home-preferences-selection,
+    #add-environments-selection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header nav #logo p {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #profiles {
+        width: 55%;
+    }
+
+	.nav-wrapper {
+        flex-wrap: wrap;
+        justify-content: right;
+	}
+
+    #environments .expanded-environments-view {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+}

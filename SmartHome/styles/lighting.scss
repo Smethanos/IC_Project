@@ -1,0 +1,76 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the lighting functionality */
+
+#lighting-1,
+#lighting-2,
+#lighting-3 {
+    font-size: larger;
+    border-radius: 50px;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: variables.$default-box-shadow;
+}
+
+#lighting-window {
+    flex-direction: column;
+    margin: auto;
+}
+
+#lighting-1 {
+    background-color: rgb(55, 55, 55);
+    color: white;
+}
+
+#lighting-2 {
+    background-color: rgb(142, 142, 142);
+    color: white;
+}
+
+#lighting-3 {
+    background-color: white;
+}
+
+#lighting-window label,
+#lighting-intensity-text {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+    margin-left: clamp(20px, 20vw, 180px);
+    margin-right: clamp(20px, 20vw, 180px);
+    white-space: nowrap;
+}
+
+#lighting-intensity-text {
+    white-space: unset
+}
+
+#color-palette::-webkit-color-swatch {
+    border: 2px solid orange;
+    border-radius: 50px;
+    box-shadow: variables.$default-box-shadow;
+
+    &:hover {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &:active {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+}
+
+#color-palette {
+    border: none;
+    display: block;
+    background: none;
+    cursor: pointer;
+    height: 65px;
+    width: 185px;
+    margin-right: clamp(20px, 10vw, 150px);
+    margin-left: clamp(20px, 10vw, 150px);
+    margin-bottom: 5px;
+}

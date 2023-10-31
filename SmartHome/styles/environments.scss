@@ -1,0 +1,221 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the environments functionality */
+
+/* Environment icons */
+@each $environment, $icon in variables.$environments-icons {
+    $gradient: map-get(variables.$environment-icons-gradients, $environment);
+
+    .environment .#{$environment} {
+        background-image: $icon, $gradient;
+    }
+
+    #add-#{$environment}-button {
+        background-image: $icon;
+    }
+}
+
+
+/* ------ */
+
+#expand-environments-button {
+    height: 30px;
+    width: 30px;
+}
+
+#expand-environments-button svg {
+    transform: scale(1.4);
+    filter: contrast(0.5);
+}
+
+#environment-selection {
+    justify-content: start;
+    align-items: start;
+    margin: auto;
+    overflow-x: auto;
+    height: fit-content;
+    padding-bottom: 30px;
+    grid-auto-flow: column;
+    margin-top: 0;
+}
+
+#environments .expanded-environments-view {
+    grid-auto-flow: unset;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+#environments:has(.expanded-environments-view) {
+    width: fit-content;
+    max-width: min-content;
+    min-width: 220px;
+}
+
+#environments:has(.expanded-environments-view) .confirmation-box {
+    width: 70vw;
+    max-width: 540px;
+}
+
+#environments:has(.environment-preference-button) {
+    max-width: 540px;
+}
+
+#environment-selection p:not(.add-products-text) {
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80px;
+}
+
+.environment-preference-button {
+    width: 100%;
+    min-width: 200px;
+    padding: 10px;
+    box-shadow: variables.$default-box-shadow;
+}
+
+.environment:last-of-type>div {
+    border-radius: 100px;
+    padding: 0;
+}
+
+.environment:last-of-type {
+    text-align: center;
+    padding: 9px;
+}
+
+#environments .add-environment-window {
+    display: flex;
+    justify-content: center;
+}
+
+#add-environments-selection {
+    margin-top: 15px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+#add-products-selection {
+    flex-direction: column;
+    width: 100%;
+    margin: 5px;
+}
+
+.environment .bathroom,
+.environment .living-room,
+.environment .kitchen,
+.environment .bedroom {
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.environment .bathroom {
+    background-color: darkcyan;
+}
+
+.environment .living-room {
+    background-color: crimson;
+}
+
+.environment .kitchen {
+    background-color: #233097;
+}
+
+.environment .bedroom {
+    background-color: #e083db;
+}
+
+.pantry-products-display {
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+#add-environment-button {
+    width: 10vw;
+    height: 10vw;
+    max-width: 70px;
+    padding: 10px;
+    max-height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+    ;
+}
+
+#add-bedroom-button,
+#add-bathroom-button,
+#add-kitchen-button,
+#add-living-room-button {
+    background-color: variables.$dark-element-background;
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+
+    &:hover {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &:active {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+}
+
+#add-environments-selection p {
+    font-size: clamp(13px, 5vw, 17.5px);
+    text-align: center;
+}
+
+#add-environments-selection>div {
+    padding-top: 5px;
+}
+
+#add-products-selection>button,
+#submit-environment-button {
+    box-shadow: variables.$default-box-shadow;
+}
+
+.add-products-text {
+    width: 100%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#submit-environment-button {
+    background-color: green;
+    color: white;
+    width: 98%;
+}
+
+/* Toaster canvas */
+#canvasWrapper {
+    flex-direction: column;
+
+    &:hover {
+        filter: drop-shadow(0 0 0.75rem rgb(255, 205, 106));
+    }
+
+    &:active {
+        filter: drop-shadow(0 0 0.75rem orange);
+    }
+}
+
+#canvasWrapper canvas {
+    border-radius: 10px;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 5px;
+    box-shadow: variables.$default-box-shadow;
+}
+
+#canvasWrapper button {
+    box-shadow: variables.$default-box-shadow;
+}
+
+/* ------ */

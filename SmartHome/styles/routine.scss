@@ -1,0 +1,45 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the routines functionality */
+
+#routine {
+    padding: max(1vw, 10px);
+    margin: 10px;
+    display: flex;
+    justify-content: start;
+    overflow: auto;
+    gap: 10px;
+    width: 100%;
+}
+
+#set-routine-button {
+    width: min-content;
+    white-space: nowrap;
+}
+
+#days-of-week-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+button.routine-day {
+    height: 60px;
+    width: 60px;
+}
+
+#define-routine-wrapper {
+    text-align: center;
+    margin: auto;
+    width: 100%;
+}
+
+#activity-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    flex-direction: row;
+}

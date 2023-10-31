@@ -1,0 +1,15 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the windows functionality */
+
+.windows-window {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#environment-selection .windows-window p:not(.add-products-text) {
+    width: unset;
+}

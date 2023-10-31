@@ -1,0 +1,70 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the air conditioner functionality */
+
+.AC-window {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#environment-selection .AC-window p:not(.add-products-text) {
+    width: unset;
+}
+
+.AC-temp-display {
+    border: none;
+    font-size: 30px;
+    border-radius: 10px;
+    margin: 0;
+    height: 35px;
+    text-align: center;
+    background: none;
+    cursor: auto;
+    padding: 0;
+    box-shadow: none;
+    width: 100px;
+    min-width: unset;
+}
+
+.AC-temp-window {
+    display: flex;
+    flex-direction: row;
+    width: min-content;
+    align-items: center;
+}
+
+.AC-temp-up,
+.AC-temp-down,
+.AC-power-button {
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    justify-content: center;
+    box-shadow: variables.$default-box-shadow;
+    align-items: center;
+}
+
+.AC-fan-wrapper .fan-speed-option {
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    border-radius: 50%;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+}
+
+.AC-power-button {
+    width: 185px;
+}
+
+.AC-submit-button {
+    background: green;
+    color: white;
+    width: fit-content;
+    min-width: 100px;
+}

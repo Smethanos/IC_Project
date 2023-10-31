@@ -1,0 +1,44 @@
+/* ============================================
+   Variables
+============================================ */
+
+$default-font: Helvetica, sans-serif;
+$default-background: url("../media/images/living-room.jpg");
+
+$environments-icons: (
+   living-room: url("../media/images/living-room-icon.png"),
+   kitchen: url("../media/images/kitchen-icon.png"),
+   bedroom: url("../media/images/bedroom-icon.png"),
+   bathroom: url("../media/images/bathroom-icon.png"),
+);
+
+$environment-icons-gradients: (
+   living-room: linear-gradient(45deg, #e4bc52, #710078),
+   kitchen: linear-gradient(45deg, rgb(102, 246, 0), brown),
+   bedroom: linear-gradient(45deg, #09097b, #969696),
+   bathroom: linear-gradient(45deg, lightblue, teal),
+);
+
+$preferences-icons: (
+   AC: url("../media/images/AC-icon.png"),
+   lighting: url("../media/images/lighting-icon.png"),
+   chatGPT: url("../media/images/chatGPT-icon.png"),
+   windows-button: url("../media/images/windows-icon.png"),
+   vacuum-robot: url("../media/images/vacuum-robot-icon.png"),
+   groceries: url("../media/images/groceries-icon.png"),
+);
+
+$preferences-icons-gradients: (
+   AC: linear-gradient(45deg, #add, #191bc9),
+   lighting: linear-gradient(45deg, orange, rgb(155 106 25)),
+   chatGPT: linear-gradient(45deg, green, black),
+   windows-button: linear-gradient(45deg, #7f8546, wheat),
+   vacuum-robot: linear-gradient(45deg, #7979d0, purple),
+   groceries: linear-gradient(45deg, #701616, #d63784),
+);
+
+$default-user-icon: url("../media/images/user-icon.png");
+
+$dark-element-background: rgba(0, 0, 0, 0.7);
+$light-element-background: rgba(255, 255, 255, 0.7);
+$default-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);

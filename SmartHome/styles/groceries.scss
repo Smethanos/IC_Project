@@ -1,0 +1,110 @@
+@use "variables";
+
+/* This stylesheet contains only styles related to the SmartHome Groceries page */
+
+h2 {
+    margin: 0;
+    font-weight: lighter;
+}
+
+#search-products-bar {
+    margin: auto;
+}
+
+#SmartHomeGroceriesPage #content-windows {
+    display: flex;
+    flex-direction: column;
+}
+
+#search-products-bar label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+#content-windows #stores {
+    max-width: 900px;
+}
+
+#search-products-input {
+    padding-left: 35px;
+    padding-right: 35px;
+    width: 70vw;
+    max-width: 880px;
+}
+
+#search-products-input:focus+label svg,
+#search-products-input:not(:placeholder-shown)+label svg {
+    position: relative;
+    bottom: -8px;
+}
+
+#return-from-groceries-button {
+    background: variables.$light-element-background;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    margin: 0;
+}
+
+#stores-selection {
+    padding: 10px;
+    grid-auto-flow: column;
+    overflow: auto;
+    padding-bottom: 40px;
+}
+
+.store {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.store>div {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 10vw;
+    height: 10vw;
+    background-size: cover;
+    margin: 0;
+    border-radius: 10px;
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 70px;
+    min-height: 70px;
+    cursor: pointer;
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.store p {
+    max-width: 100px;
+}
+
+#credit-card-form {
+    font-size: 14.5px;
+}
+
+#credit-card-form input {
+    max-width: 200px;
+    min-width: 140px;
+    width: 40vw;
+}
+
+#credit-card-form input[type="month"] {
+    max-width: 150px;
+}
+
+#cart-view {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    margin-right: 35px;
+    margin-top: 10px;
+    top: 70px;
+    color: white;
+    background: variables.$dark-element-background;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    padding: 25px;
+    border-radius: 10px;
+}
