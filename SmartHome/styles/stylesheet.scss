@@ -38,6 +38,7 @@ body::before {
     min-height: 100vh;
     margin: 0;
     position: fixed;
+    z-index: -1;
 }
 
 body.no-blur::before {
