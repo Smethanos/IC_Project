@@ -115,6 +115,15 @@ lightingButton.addEventListener("click", () => {
     }, 150);
 })
 
+/* diogoF code (help) 
+    createUI() {
+        }
+    load_ui_on_other_places_than_general_context{
+        
+    }
+
+*/
+
 colorPalette.addEventListener("input", () => {
     localStorage.setItem("lightingColor", colorPalette.value);
     document.getElementById("house-name").style.backgroundColor = localStorage.getItem("lightingColor") + "b3";
